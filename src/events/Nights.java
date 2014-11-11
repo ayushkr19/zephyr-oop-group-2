@@ -7,30 +7,58 @@ import participatingbody.Student;
 
 public class Nights {
 
-	private ArrayList<Student> attendees;
-	
-	public ArrayList<Student> getAttendees() {
-		return attendees;
-	}
-	
-	public void setAttendees(ArrayList<Student> attendees) {
-		this.attendees = attendees;
-	}
-	
+	/**
+	 * Constructor
+	 * @param attendees
+	 */
 	public Nights(ArrayList<Student> attendees) {
 		this.attendees = attendees;
 	}
 
+	/**
+	 * Constructor
+	 */
 	public Nights() {
 		attendees = new ArrayList<Student>();
 	}
+	
+	/**
+	 * List of students attending the night
+	 */
+	private ArrayList<Student> attendees;
+	
+	/**
+	 * Getter for the list of attendees
+	 * @return attendees
+	 */
+	public ArrayList<Student> getAttendees() {
+		return attendees;
+	}
+	
+	/**
+	 * Setter for the attendees list
+	 * @param attendees
+	 */
+	public void setAttendees(ArrayList<Student> attendees) {
+		this.attendees = attendees;
+	}
+	
 
+	/**
+	 * Register a student for the night
+	 * @param student
+	 */
 	public void registerStudent(Student student){
 		if(!attendees.contains(student)){
 			attendees.add(student);
 		}
 	}
 	
+	/**
+	 * Find out if a student is registered for the night or not
+	 * @param student
+	 * @return true if registered, else false
+	 */
 	public boolean isRegistered(Student student){
 		if(attendees.isEmpty()){
 			return false;
@@ -41,16 +69,23 @@ public class Nights {
 		}
 	}
 	
+	/**
+	 * Display all students registered for the night
+	 */
 	public void displayRegisteredStudents(){
 		if(attendees.isEmpty()){
 			System.out.println("No registered students!");
 			return;
 		}
 		for(Student student : attendees){
-			System.out.println("Registered : " + student.getName());
+			System.out.println( student.getName() + "with ID:" + student.getID() + " has registered.");
 		}
 	}
 	
+	/**
+	 * Let performer perform for the night
+	 * @param performer
+	 */
 	public void perform(Performer performer){
 		performer.perform();
 	}

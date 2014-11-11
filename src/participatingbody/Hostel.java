@@ -10,10 +10,20 @@ import exceptions.HostelNotFoundException;
 
 public class Hostel {
 
+	/**
+	 * List of betted events for this hostel
+	 */
 	private ArrayList<CompetitiveEvents> bettedEvents;
+	/**
+	 * List of events this hostel has participated in
+	 */
 	private ArrayList<CompetitiveEvents> participatedEvents;
 	
-	
+	/**
+	 * Constructor
+	 * @param bettedEvents
+	 * @param participatedEvents
+	 */
 	public Hostel(ArrayList<CompetitiveEvents> bettedEvents,
 			ArrayList<CompetitiveEvents> participatedEvents) {
 		super();
@@ -22,7 +32,9 @@ public class Hostel {
 	}
 	
 	
-
+	/**
+	 * Constructor
+	 */
 	public Hostel() {
 		super();
 		bettedEvents = new ArrayList<CompetitiveEvents>();
@@ -30,28 +42,52 @@ public class Hostel {
 	}
 
 
-
+	/**
+	 * Getter for participated Events
+	 * @return
+	 */
 	public ArrayList<CompetitiveEvents> getParticipatedEvents() {
 		return participatedEvents;
 	}
 
+	/**
+	 * Setter for participated Events
+	 * @param participatedEvents
+	 */
 	public void setParticipatedEvents(
 			ArrayList<CompetitiveEvents> participatedEvents) {
 		this.participatedEvents = participatedEvents;
 	}
 
+	/**
+	 * Getter for Betted Events
+	 * @return
+	 */
 	public ArrayList<CompetitiveEvents> getBettedEvents() {
 		return bettedEvents;
 	}
 
+	/**
+	 * Setter for Betted Events
+	 * @param bettedEvents
+	 */
 	public void setBettedEvents(ArrayList<CompetitiveEvents> bettedEvents) {
 		this.bettedEvents = bettedEvents;
 	}
 	
+	/**
+	 * Getter for number of events participated in
+	 * @return size
+	 */
 	public int getNumOfEventsParticipatedIn(){
 		return participatedEvents.size();
 	}
 
+	/**
+	 * Get scores for this hostel
+	 * @return score
+	 * @throws HostelNotFoundException
+	 */
 	public Long getScores() throws HostelNotFoundException{
 		if(ScoreBoard.getScoresMap().containsKey(this)){
 			return ScoreBoard.getScores(this);
@@ -61,6 +97,11 @@ public class Hostel {
 		return 0L;
 	}
 	
+	/**
+	 * Get position among all hostels
+	 * @return position
+	 * @throws HostelNotFoundException
+	 */
 	public int getPosition() throws HostelNotFoundException{
 		HashMap<Hostel, Long> scoresMap = ScoreBoard.getScoresMap();
 		
@@ -69,7 +110,6 @@ public class Hostel {
 		
 		if(scoresMap != null){
 			for(Map.Entry<Hostel, Long> entry : scoresMap.entrySet()){
-				//System.out.println("Hostel : " + entry.getKey() + ", Score : " + entry.getValue());
 				
 				if(entry.getKey() != this){
 					if(entry.getValue() > thisHostelScore){
@@ -83,6 +123,10 @@ public class Hostel {
 		return position;
 	}
 	
+	/**
+	 * Add event to betted list
+	 * @param competitiveEvents
+	 */
 	public void addBettedEvent(CompetitiveEvents competitiveEvents){
 		if(!bettedEvents.contains(competitiveEvents)){
 			bettedEvents.add(competitiveEvents);

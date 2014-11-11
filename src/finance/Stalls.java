@@ -2,11 +2,9 @@ package finance;
 
 public class Stalls {
 
-	public boolean sellItems(){
-		return true;
+	public void sellItems(){
 	}
 	
-	public boolean payToZaphyrControls(){
-		return true;
+	public void payToZaphyrControls(){
 	}
 }
