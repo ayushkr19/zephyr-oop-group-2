@@ -5,7 +5,6 @@ This project aims to simulate the inter hostel fest Zephyr. Most of the activiti
 
 ## Note to instructors
 
-The eclipse project has been exported as an archive file "Zephyr.zip".
 The unit tests can be found in the "test" package.
 The class diagram for the entire project has been named as "Zephyr.zargo"
 To improve readability, the class diagrams for zephyr controls & other departments has also been attached.
