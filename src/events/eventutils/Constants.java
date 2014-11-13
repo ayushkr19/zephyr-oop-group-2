@@ -21,4 +21,13 @@ public class Constants {
 	 */
 	public static final int MAX_ITEMS_IN_INVENTORY = 10;
 	
+	/**
+	 * Registration fee for the nights
+	 */
+	public static final long NIGHTS_REGISTRATION_FEE = 500;
+	
+	/**
+	 * Profit from each Tshirt
+	 */
+	public static final long PROFIT_PER_TEE = 50;
 }

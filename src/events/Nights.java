@@ -6,6 +6,13 @@ import participatingbody.Performer;
 import participatingbody.Student;
 
 public class Nights {
+	
+	/**
+	 * List of students attending the night
+	 */
+	private ArrayList<Student> attendees;
+	
+	private static long registrationFee;
 
 	/**
 	 * Constructor
@@ -22,10 +29,7 @@ public class Nights {
 		attendees = new ArrayList<Student>();
 	}
 	
-	/**
-	 * List of students attending the night
-	 */
-	private ArrayList<Student> attendees;
+	
 	
 	/**
 	 * Getter for the list of attendees
@@ -43,6 +47,20 @@ public class Nights {
 		this.attendees = attendees;
 	}
 	
+
+	/**
+	 * @return the registrationFee
+	 */
+	public long getRegistrationFee() {
+		return registrationFee;
+	}
+
+	/**
+	 * @param registrationFee the registrationFee to set
+	 */
+	public static void setRegistrationFee(long registrationFee) {
+		Nights.registrationFee = registrationFee;
+	}
 
 	/**
 	 * Register a student for the night

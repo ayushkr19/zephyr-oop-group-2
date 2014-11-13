@@ -1,9 +1,20 @@
 package finance;
 
 public class TshirtVendor {
-
-	public void getCP(){
-		
+	
+	private static long costPrice;
+	private static long sellingPrice;
+	
+	public static long getCP(){
+		return costPrice;
+	}
+	
+	public static void setSP(long sellingPrice){
+		TshirtVendor.sellingPrice = sellingPrice;
+	}
+	
+	public static long getSP(){
+		return sellingPrice;
 	}
 	
 	public void getGoodies(){

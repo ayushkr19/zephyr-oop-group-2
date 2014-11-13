@@ -1,24 +1,39 @@
 package finance;
 
+import events.Nights;
+import events.eventutils.Constants;
+import participatingbody.Performer;
+
 public class PlannedBudget {
 
-	public boolean getQuotes(){
-		return true;
+	private long budget;
+	
+	public PlannedBudget() {
+		budget = 0;
+	}
+
+	public PlannedBudget(long budget) {
+		this.budget = budget;
+	}
+
+	public void getQuotes(Performer performer){
+		long performerQuotes = performer.getQuotes();
+		budget = budget + performerQuotes;
 	}
 	
-	public boolean decideSP(){
-		return true;
+	public void decideSP(){
+		TshirtVendor.setSP(TshirtVendor.getCP() + Constants.PROFIT_PER_TEE);
 	}
 	
-	public boolean decideRegistrationFee(){
-		return true;
+	public void decideRegistrationFee(){
+		Nights.setRegistrationFee(Constants.NIGHTS_REGISTRATION_FEE);
 	}
 	
-	public boolean finalizeBudget(){
-		return true;
+	public FinalizedBudget finalizeBudget(){
+		return new FinalizedBudget(budget);
 	}
 	
-	public boolean updateBudget(){
-		return true;
+	public void updateBudget(){
+		
 	}
 }
