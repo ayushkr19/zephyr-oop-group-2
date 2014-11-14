@@ -1,8 +1,14 @@
 package finance;
 
+import java.util.ArrayList;
+
+import events.eventutils.Constants;
+import participatingbody.participants.HostelRep;
+
+
 public class TshirtVendor {
 	
-	private static long costPrice;
+	private static long costPrice = Constants.TSHIRT_CP;
 	private static long sellingPrice;
 	
 	public static long getCP(){
@@ -25,7 +31,11 @@ public class TshirtVendor {
 		
 	}
 	
-	public void supplyTshirts(){
-		
+	public void supplyTshirts(ArrayList<HostelRep> hostelReps){
+		if(hostelReps != null){
+			for(HostelRep hostelRep : hostelReps){
+				hostelRep.distributeTees();
+			}
+		}
 	}
 }

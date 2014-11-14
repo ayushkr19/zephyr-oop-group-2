@@ -1,17 +1,20 @@
 package controls;
 
+import finance.FinalizedBudget;
+import finance.PlannedBudget;
+
 public class FinanceHead extends ZephyrControls {
 
 	public void coordinateSponsorship(){
 		
 	}
 	
-	public void planBudget(){
-		
+	public PlannedBudget planBudget(){
+		return new PlannedBudget();
 	}
 	
-	public void finalizeBudget(){
-		
+	public FinalizedBudget finalizeBudget(PlannedBudget plannedbudget){
+		return plannedbudget.finalizeBudget();
 	}
 	
 	public void makePayments(){

@@ -2,8 +2,8 @@ package participatingbody;
 
 public class Administration {
 
-	public void grantPermissions(){
-		
+	public boolean grantPermissions(){
+		return true;
 	}
 	
 	public void grantReimbursements(){

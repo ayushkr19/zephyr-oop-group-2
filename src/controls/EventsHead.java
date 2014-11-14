@@ -2,10 +2,6 @@ package controls;
 
 public class EventsHead extends ZephyrControls {
 
-	public void assignVerticals(){
-		
-	}
-	
 	public void manageEvents(){
 		
 	}

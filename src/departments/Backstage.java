@@ -2,9 +2,9 @@ package departments;
 
 public class Backstage extends Department {
 
-	public void budget() {
+	public long budget() {
 		// TODO Auto-generated method stub
-
+		return 600;
 	}
 	
 	public void setUp(){

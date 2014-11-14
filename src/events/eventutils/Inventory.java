@@ -48,7 +48,7 @@ public class Inventory {
 		int qt = quantity[type.ordinal()];
 		if (qt-q < 0)
 		{
-			throw new NotEnoughItemsException("Not enough Items");
+			throw new NotEnoughItemsException();
 		}
 		quantity[type.ordinal()] -= q;
 	}

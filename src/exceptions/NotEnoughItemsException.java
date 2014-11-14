@@ -1,8 +1,8 @@
 package exceptions;
 
 public class NotEnoughItemsException extends Exception {
-	public NotEnoughItemsException(String s)
-	{
-		super(s);
+	@Override
+	public String getMessage() {
+		return "Not enough items remaining";
 	}
 }

@@ -1,10 +1,14 @@
 package finance;
 
+import participatingbody.Student;
+
 public class Stalls {
 
-	public void sellItems(){
+	public void sellItems(Student student){
+		student.purchaseFromStalls();
 	}
 	
-	public void payToZaphyrControls(){
+	public void payToZephyrControls(){
+		
 	}
 }

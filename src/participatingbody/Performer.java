@@ -7,7 +7,7 @@ public class Performer {
 	}
 	
 	public long getQuotes(){
-		return 0;
+		return 3000;
 		
 	}
 }

@@ -6,10 +6,6 @@ public class ChiefCoordinator extends ZephyrControls {
 		
 	}
 	
-	public void notifyParticipantsAndJudges(){
-		
-	}
-	
 	public void assignVerticals(){
 		
 	}

@@ -2,17 +2,14 @@ package departments;
 
 public class Dosm extends Department{
 
-	public void budget() {
-		// TODO Auto-generated method stub
-		
+	public long budget() {
+		return 400;
 	}
 
-	public int getStalls(){
-		return 0;
+	public void getStalls(){
 	}
 	
-	public int getSponsors(){
-		return 0;
+	public void getSponsors(){
 	}
 	
 	public void takePayment(){

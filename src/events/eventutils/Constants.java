@@ -30,4 +30,19 @@ public class Constants {
 	 * Profit from each Tshirt
 	 */
 	public static final long PROFIT_PER_TEE = 50;
+	
+	/**
+	 * Number of students
+	 */
+	public static final int NUMBER_OF_STUDENTS = 180 * 13;
+	
+	/**
+	 * Number of competitive events
+	 */
+	public static final int NUMBER_OF_COMPETITIVE_EVENTS = 15;
+	
+	/**
+	 * Cost Price of TShirts
+	 */
+	public static final long TSHIRT_CP = 200;
 }
