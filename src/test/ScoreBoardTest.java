@@ -14,7 +14,7 @@ public class ScoreBoardTest {
 	Hostel AH3 = new Hostel("AH3");
 	@Test
 	public void test() {
-		assertEquals(scoreBoard.getScoresMap().size(),0);
+		assertEquals(ScoreBoard.getScoresMap().size(),0);
 	}
 	
 	@Test(expected = HostelNotFoundException.class)
