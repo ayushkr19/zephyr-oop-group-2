@@ -45,8 +45,29 @@ public class Constants {
 	 * Cost Price of TShirts
 	 */
 	public static final long TSHIRT_CP = 200;
+	
 	/**
 	 * Max budget that can be allowed by the administration 
 	 */
 	public static final long MAX_ALLOWABLE_BUDGET = 13000;
+	
+	/**
+	 * Min number of participants for a competitive event
+	 */
+	public static final int MIN_NUMBER_OF_PARTICIPANTS_FOR_EVENT = 3;
+	
+	/**
+	 * Max number of participants for a competitive event
+	 */
+	public static final int MAX_NUMBER_OF_PARTICIPANTS_FOR_EVENT = 50;
+	
+	/**
+	 * Minimum number of students who purchase from stalls
+	 */
+	public static final int MIN_NUMBER_OF_STUDENTS_PURCHASING = 30;
+	
+	/**
+	 * Max number of students who purchase from stalls
+	 */
+	public static final int MAX_NUMBER_OF_STUDENTS_PURCHASING = 1500;
 }

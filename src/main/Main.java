@@ -126,8 +126,8 @@ public class Main {
 			convener.bookRooms();
 			dopy.coverEvent();
 			
-			int lowerBound = 3;
-			int pseudoUpperBound = 30;
+			int lowerBound = Constants.MIN_NUMBER_OF_PARTICIPANTS_FOR_EVENT;
+			int pseudoUpperBound = Constants.MAX_NUMBER_OF_PARTICIPANTS_FOR_EVENT - lowerBound;
 			int NumberOfParticipants = lowerBound + random.nextInt(pseudoUpperBound);
 			
 			Collections.shuffle(allStudents);
@@ -155,7 +155,7 @@ public class Main {
 		}
 		
 		Collections.shuffle(allStudents);
-		int numberOfStudentsBuying = 3 + random.nextInt(40);
+		int numberOfStudentsBuying = Constants.MIN_NUMBER_OF_STUDENTS_PURCHASING + random.nextInt(Constants.MAX_NUMBER_OF_STUDENTS_PURCHASING - Constants.MIN_NUMBER_OF_STUDENTS_PURCHASING);
 		for(int i=0; i<numberOfStudentsBuying ; i++){
 			stalls.sellItems(allStudents.get(i));
 		}
