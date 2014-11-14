@@ -49,6 +49,21 @@ public class CompetitiveEvents {
 		participants = new ArrayList<Participant>();
 	}
 
+	
+	/**
+	 * @return the participants
+	 */
+	public ArrayList<Participant> getParticipants() {
+		return participants;
+	}
+
+	/**
+	 * @param participants the participants to set
+	 */
+	public void setParticipants(ArrayList<Participant> participants) {
+		this.participants = participants;
+	}
+
 	/**
 	 * Getter of EventType
 	 * @return eventType

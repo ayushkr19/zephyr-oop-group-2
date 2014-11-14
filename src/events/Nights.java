@@ -96,7 +96,7 @@ public class Nights {
 			return;
 		}
 		for(Student student : attendees){
-			System.out.println( student.getName() + "with ID:" + student.getID() + " has registered.");
+			System.out.println( student.getName() + " with ID:" + student.getID() + " has registered for Nights");
 		}
 	}
 	
@@ -106,5 +106,9 @@ public class Nights {
 	 */
 	public void perform(Performer performer){
 		performer.perform();
+	}
+
+	public void displayNumberOfRegisteredStudents(int performerIndex) {
+		System.out.println("Number of students registered for Nights " + (performerIndex+1) + " : " + attendees.size());
 	}
 }

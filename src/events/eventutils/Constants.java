@@ -45,4 +45,8 @@ public class Constants {
 	 * Cost Price of TShirts
 	 */
 	public static final long TSHIRT_CP = 200;
+	/**
+	 * Max budget that can be allowed by the administration 
+	 */
+	public static final long MAX_ALLOWABLE_BUDGET = 13000;
 }

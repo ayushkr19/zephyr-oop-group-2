@@ -11,6 +11,10 @@ import exceptions.HostelNotFoundException;
 public class Hostel {
 
 	/**
+	 * Name
+	 */
+	private String name;
+	/**
 	 * List of betted events for this hostel
 	 */
 	private ArrayList<CompetitiveEvents> bettedEvents;
@@ -21,12 +25,14 @@ public class Hostel {
 	
 	/**
 	 * Constructor
+	 * @param name
 	 * @param bettedEvents
 	 * @param participatedEvents
 	 */
-	public Hostel(ArrayList<CompetitiveEvents> bettedEvents,
+	public Hostel(String name,ArrayList<CompetitiveEvents> bettedEvents,
 			ArrayList<CompetitiveEvents> participatedEvents) {
 		super();
+		this.setName(name);
 		this.bettedEvents = bettedEvents;
 		this.participatedEvents = participatedEvents;
 	}
@@ -35,8 +41,9 @@ public class Hostel {
 	/**
 	 * Constructor
 	 */
-	public Hostel() {
+	public Hostel(String name) {
 		super();
+		this.setName(name);
 		bettedEvents = new ArrayList<CompetitiveEvents>();
 		participatedEvents = new ArrayList<CompetitiveEvents>();
 	}
@@ -132,6 +139,22 @@ public class Hostel {
 			bettedEvents.add(competitiveEvents);
 		}
 		
+	}
+
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	

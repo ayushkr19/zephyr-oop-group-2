@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import exceptions.HostelNotFoundException;
-
 import participatingbody.Hostel;
 
 public class ScoreBoard {
@@ -81,14 +80,60 @@ public class ScoreBoard {
 	 * Display scores of all Hostels
 	 */
 	public static void displayScores(){
-		//Get all hostels & display scores
 		if(scoresMap != null){
 			for(Map.Entry<Hostel, Long> entry : scoresMap.entrySet()){
-				System.out.println("Hostel : " + entry.getKey() + ", Score : " + entry.getValue());
+				System.out.println("Hostel : " + entry.getKey().getName() + ", Score : " + entry.getValue());
 			}
 		}else{
 			System.out.println("No scores exist for any hostel");
 		}
 		
 	}
+	
+	/**
+	 * Display winner of Zephyr
+	 */
+	public static void displayWinner(){
+		if(scoresMap != null){
+			
+			HashMap<Hostel, Long> winners = new HashMap<Hostel,Long>();
+			
+			Long highestScore = Long.MIN_VALUE;
+			
+			for(Map.Entry<Hostel, Long> entry : scoresMap.entrySet()){
+				if(entry.getValue() > highestScore){
+					winners.clear();
+					winners.put(entry.getKey(), entry.getValue());
+					highestScore = entry.getValue();
+				}else if( entry.getValue().equals(highestScore)){
+					winners.put(entry.getKey(), entry.getValue());
+				}
+			}
+			
+			if(winners.size() == 0){
+				System.out.println("No winner of Zephyr!");
+			}else if(winners.size() == 1){
+				for(Map.Entry<Hostel, Long> entry : winners.entrySet()){
+					System.out.println("Hostel " + entry.getKey().getName() + " is the winner of Zephyr with " + entry.getValue() + " points! Congratulations!" );
+				}
+			}else  if(winners.size() > 1){
+				String winningHostels = "";
+				Long winningScore = 0L;
+				for(Map.Entry<Hostel, Long> entry : winners.entrySet()){
+					if(winningHostels.equals("")){
+						winningHostels = entry.getKey().getName();
+					}else{
+						winningHostels = winningHostels + ", " +entry.getKey().getName();
+					}
+					
+					winningScore = entry.getValue();
+				}
+				System.out.println("Hostels " + winningHostels + " are the joint winners of Zephyr with " + winningScore + " points! Congratulations!");
+			}
+			
+		}else{
+			System.out.println("No scores exist for any hostel");
+		}
+	}
+	
 }

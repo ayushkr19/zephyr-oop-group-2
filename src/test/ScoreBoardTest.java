@@ -11,7 +11,7 @@ import exceptions.HostelNotFoundException;
 public class ScoreBoardTest {
 
 	ScoreBoard scoreBoard = new ScoreBoard();
-	Hostel AH3 = new Hostel();
+	Hostel AH3 = new Hostel("AH3");
 	@Test
 	public void test() {
 		assertEquals(scoreBoard.getScoresMap().size(),0);
