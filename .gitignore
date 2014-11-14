@@ -39,3 +39,6 @@ hs_err_pid*
 
 #ArgoUml backup files
 *.zargo~
+
+#Gedit backup
+*.txt~
