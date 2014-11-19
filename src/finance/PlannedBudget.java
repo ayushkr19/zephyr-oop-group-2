@@ -31,9 +31,10 @@ public class PlannedBudget {
 		this.budget = budget;
 	}
 
-	public void getQuotes(Performer performer){
+	public long getQuotes(Performer performer){
 		long performerQuotes = performer.getQuotes();
 		budget = budget + performerQuotes;
+		return performerQuotes;
 	}
 	
 	public void getQuotes(Department department){
@@ -45,8 +46,8 @@ public class PlannedBudget {
 		TshirtVendor.setSP(TshirtVendor.getCP() + Constants.PROFIT_PER_TEE);
 	}
 	
-	public void decideRegistrationFee(){
-		Nights.setRegistrationFee(Constants.NIGHTS_REGISTRATION_FEE);
+	public void decideRegistrationFee(long allPerformerQuotes, long estimatedStudentsAttending){
+		Nights.setRegistrationFee((Constants.PROFITS_PER_NIGHT + allPerformerQuotes)/estimatedStudentsAttending);
 	}
 	
 	public FinalizedBudget finalizeBudget(){

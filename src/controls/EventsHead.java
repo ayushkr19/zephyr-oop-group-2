@@ -9,7 +9,7 @@ import participatingbody.participants.Participant;
 public class EventsHead extends ZephyrControls {
 
 	public void manageEvents(){
-		
+		System.out.println("Events head managing event");
 	}
 	
 	public void notifyParticipantsAndJudges(ArrayList<Participant> participants, Judge judge, ArrayList<HostelRep> hostelReps){
@@ -19,10 +19,10 @@ public class EventsHead extends ZephyrControls {
 	}
 	
 	public void publishRulebook(){
-		
+		System.out.println("Publishing rulebook");
 	}
 	
 	public void publishEventList(){
-		
+		System.out.println("Publishing events list");
 	}
 }

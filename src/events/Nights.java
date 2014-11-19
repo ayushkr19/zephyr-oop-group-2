@@ -60,6 +60,7 @@ public class Nights {
 	 */
 	public static void setRegistrationFee(long registrationFee) {
 		Nights.registrationFee = registrationFee;
+		System.out.println("Registration fee for Night : " + registrationFee);
 	}
 
 	/**

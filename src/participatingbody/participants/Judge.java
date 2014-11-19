@@ -13,8 +13,8 @@ public class Judge extends Student{
 		super(name, hostel, iD, attends);
 	}
 
-	public void judgeEvent(){
-		
+	public void judgeEvent(CompetitiveEvents competitiveEvents){
+		System.out.println("Judging event " + competitiveEvents.getName());
 	}
 	
 	public String declareResults(CompetitiveEvents competitiveEvents, Participant participant){
@@ -23,6 +23,7 @@ public class Judge extends Student{
 	}
 	
 	public void distributePrizes(Participant winner){
+		System.out.println("Distributing prize to " + winner.getName() + " of hostel " + winner.getHostel());
 		winner.collectPrize();
 	}
 }

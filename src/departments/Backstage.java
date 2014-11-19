@@ -8,11 +8,11 @@ public class Backstage extends Department {
 	}
 	
 	public void setUp(){
-		
+		System.out.println("Setting up stages");
 	}
 	
 	public void manageEvent(){
-		
+		System.out.println("Help in management");
 	}
 
 }

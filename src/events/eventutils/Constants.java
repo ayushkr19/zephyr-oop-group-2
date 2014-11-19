@@ -19,7 +19,7 @@ public class Constants {
 	/**
 	 * Hold the max number of items of a particular type.
 	 */
-	public static final int MAX_ITEMS_IN_INVENTORY = 10;
+	public static final int MAX_ITEMS_IN_INVENTORY = 5;
 	
 	/**
 	 * Registration fee for the nights
@@ -49,7 +49,7 @@ public class Constants {
 	/**
 	 * Max budget that can be allowed by the administration 
 	 */
-	public static final long MAX_ALLOWABLE_BUDGET = 13000;
+	public static final long MAX_ALLOWABLE_BUDGET = 143000;
 	
 	/**
 	 * Min number of participants for a competitive event
@@ -70,4 +70,14 @@ public class Constants {
 	 * Max number of students who purchase from stalls
 	 */
 	public static final int MAX_NUMBER_OF_STUDENTS_PURCHASING = 1500;
+	
+	/**
+	 * Desired profit per night
+	 */
+	public static final long PROFITS_PER_NIGHT = 5000;
+	
+	/**
+	 * Min Popularity level
+	 */
+	public static final int LOWEST_POPULARITY_LEVEL = 6;
 }

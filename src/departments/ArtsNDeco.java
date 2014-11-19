@@ -8,6 +8,6 @@ public class ArtsNDeco extends Department {
 	}
 
 	public void decorate(){
-		
+		System.out.println("Decorating campus");
 	}
 }

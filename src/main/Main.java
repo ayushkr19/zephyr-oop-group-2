@@ -26,9 +26,12 @@ import events.CompetitiveEvents;
 import events.Nights;
 import events.eventutils.Constants;
 import events.eventutils.EventType;
+import events.eventutils.Inventory;
 import events.eventutils.ScoreBoard;
+import events.eventutils.Inventory.InventoryItem;
 import exceptions.BudgetNotApprovedException;
 import exceptions.HostelNotFoundException;
+import exceptions.NotEnoughItemsException;
 import exceptions.PermissionsDeniedException;
 import finance.FinalizedBudget;
 import finance.PlannedBudget;
@@ -58,8 +61,9 @@ public class Main {
 	static ScoreBoard scoreBoard;
 	static Stalls stalls;
 	static TshirtVendor tshirtVendor;
+	static Inventory inventory;
 
-	public static void main(String[] args) throws PermissionsDeniedException, BudgetNotApprovedException, HostelNotFoundException {
+	public static void main(String[] args) throws PermissionsDeniedException, BudgetNotApprovedException, HostelNotFoundException, NotEnoughItemsException {
 		System.out.println("Starting Up");
 
 		// Initializing variables
@@ -72,32 +76,63 @@ public class Main {
 				+ allCompetitiveEvents.size());
 
 		// Pre -fest stuff
-
+		
+		/**
+		 * Acquire permission
+		 */
 		csa.acquirePermissions();
 		if (!administration.grantPermissions(true)) {
 			throw new PermissionsDeniedException();
 		}
 
-		PlannedBudget plannedBudget = financeHead.planBudget();;
+		/**
+		 * Plan budget by finance head
+		 */
+		PlannedBudget plannedBudget = financeHead.planBudget();
 
+		
+		/**
+		 * Finalize performers & manage departments by convener
+		 */
 		convener.manageDepartments();
 		convener.finalizePerformers();
 
+		
+		/**
+		 * Calculate planned budget by getting quotes
+		 */
+		long allPerformerQuotes = 0;
+		long estimatedStudentsAttending = 0;
 		for(Performer performer : allPerformers){
-			plannedBudget.getQuotes(performer);
+			allPerformerQuotes += plannedBudget.getQuotes(performer);
+			estimatedStudentsAttending += (performer.estimatedStudentReach()/allPerformers.size());
 		}
 	
 		for (Department dept : allDepartments) {
 			plannedBudget.getQuotes(dept);
 		}
+		
+		/**
+		 * Coordinate & finalize budget 
+		 */
 		csa.coordinateBudget();
 		csa.finalizeVendor();
 
+		/**
+		 * Get sponsors & stalls
+		 */
 		dosm.getSponsors();
 		dosm.getStalls();
+		
+		/**
+		 * Coordinate sponsorship with Dosm
+		 */
 		financeHead.coordinateSponsorship();
 
-		plannedBudget.decideRegistrationFee();
+		/**
+		 * Decide Registration fees & SP of tees
+		 */
+		plannedBudget.decideRegistrationFee(allPerformerQuotes,estimatedStudentsAttending);
 		plannedBudget.decideSP();
 		
 		if(!administration.approveBudget(plannedBudget)){
@@ -118,13 +153,18 @@ public class Main {
 		eventsHead.publishRulebook();
 		eventsHead.manageEvents();
 		
-		
+		controlsMember.procureMaterials(allCompetitiveEvents);
+		convener.bookRooms();
 		// During fest stuff
 		for (CompetitiveEvents competitiveEvents : allCompetitiveEvents) {
-			controlsMember.procureMaterials();
-			controlsMember.manageEvent();
-			convener.bookRooms();
-			dopy.coverEvent();
+			
+			System.out.println("______________" + competitiveEvents.getName() + "______________");
+			System.out.println(" ");
+			System.out.println(" ");
+			controlsMember.withdrawRequiredItems(competitiveEvents);
+			controlsMember.manageEvent(competitiveEvents);
+			
+			dopy.coverEvent(competitiveEvents);
 			
 			int lowerBound = Constants.MIN_NUMBER_OF_PARTICIPANTS_FOR_EVENT;
 			int pseudoUpperBound = Constants.MAX_NUMBER_OF_PARTICIPANTS_FOR_EVENT - lowerBound;
@@ -142,7 +182,7 @@ public class Main {
 				participant.participateInEvent();
 			}
 			
-			judge.judgeEvent();
+			judge.judgeEvent(competitiveEvents);
 			Participant winner =  competitiveEvents.getParticipants().get(random.nextInt(NumberOfParticipants));
 			String winningHostel = judge.declareResults(competitiveEvents,winner);
 			for(Hostel hostel: allHostels){
@@ -205,6 +245,7 @@ public class Main {
 		initializeVendors();
 		initializeScoreBoard();
 	}
+
 
 	private static void initializeVendors() {
 		tshirtVendor = new TshirtVendor();
@@ -293,16 +334,16 @@ public class Main {
 			CompetitiveEvents event;
 			switch (i % 3) {
 			case 0:
-				event = new CompetitiveEvents(EventType.GOLD);
+				event = new CompetitiveEvents(EventType.GOLD, "Event" + i);
 				break;
 			case 1:
-				event = new CompetitiveEvents(EventType.SILVER);
+				event = new CompetitiveEvents(EventType.SILVER, "Event" + i);
 				break;
 			case 2:
-				event = new CompetitiveEvents(EventType.BRONZE);
+				event = new CompetitiveEvents(EventType.BRONZE, "Event" + i);
 				break;
 			default:
-				event = new CompetitiveEvents(EventType.GOLD);
+				event = new CompetitiveEvents(EventType.GOLD, "Event" + i);
 				break;
 			}
 
@@ -325,6 +366,8 @@ public class Main {
 		Hostel CH3 = new Hostel("CH3");
 		Hostel CH4 = new Hostel("CH4");
 		Hostel CH5 = new Hostel("CH5");
+		Hostel CH6 = new Hostel("CH6");
+		
 		allHostels.add(AH1);
 		allHostels.add(AH2);
 		allHostels.add(AH3);
@@ -338,6 +381,7 @@ public class Main {
 		allHostels.add(CH3);
 		allHostels.add(CH4);
 		allHostels.add(CH5);
+		allHostels.add(CH6);
 	}
 
 	private static void initializeStudents() {
@@ -345,7 +389,7 @@ public class Main {
 
 		for (int i = 1; i <= Constants.NUMBER_OF_STUDENTS; i++) {
 			Student student;
-			switch (i % 13) {
+			switch (i % 14) {
 			case 0:
 				student = new Student("Student" + i, "AH1", "bits" + i, true);
 				break;
@@ -384,6 +428,9 @@ public class Main {
 				break;
 			case 12:
 				student = new Student("Student" + i, "CH5", "bits" + i, true);
+				break;
+			case 13:
+				student = new Student("Student" + i, "CH6", "bits" + i, true);
 				break;
 			default:
 				student = new Student("Student" + i, "AH3", "bits" + i, true);

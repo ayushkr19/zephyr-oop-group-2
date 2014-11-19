@@ -1,15 +1,16 @@
 package events;
 
 import java.util.ArrayList;
+import java.util.Random;
 
+import participatingbody.Hostel;
+import participatingbody.Student;
+import participatingbody.participants.Participant;
 import events.eventutils.Constants;
 import events.eventutils.EventType;
 import events.eventutils.ScoreBoard;
 import events.eventutils.UpdateScoreType;
 import exceptions.HostelNotFoundException;
-import participatingbody.Hostel;
-import participatingbody.Student;
-import participatingbody.participants.Participant;
 
 public class CompetitiveEvents {
 	/**
@@ -17,6 +18,38 @@ public class CompetitiveEvents {
 	 */
 	private EventType eventType;
 	
+	private String name;
+	
+	private int[] quantity;
+	 
+	/**
+	 * @return the quantity
+	 */
+	public int[] getQuantity() {
+		return quantity;
+	}
+
+	/**
+	 * @param quantity the quantity to set
+	 */
+	public void setQuantity(int[] quantity) {
+		this.quantity = quantity;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	/**
 	 * List of participants for this event
 	 */
@@ -37,8 +70,9 @@ public class CompetitiveEvents {
 	 * Constructor
 	 * @param eventType
 	 */
-	public CompetitiveEvents(EventType eventType) {
+	public CompetitiveEvents(EventType eventType, String name) {
 		this();
+		this.name = name;
 		this.eventType = eventType;
 	}
 
@@ -47,9 +81,17 @@ public class CompetitiveEvents {
 	 */
 	public CompetitiveEvents() {
 		participants = new ArrayList<Participant>();
+		quantity = new int[Constants.MAX_ITEMS_IN_INVENTORY];
+		initInventoryRequirements();
 	}
 
 	
+	private void initInventoryRequirements() {
+		Random random = new Random();
+		int itemType = random.nextInt(Constants.MAX_ITEMS_IN_INVENTORY);
+		quantity[itemType] += random.nextInt(5);
+	}
+
 	/**
 	 * @return the participants
 	 */

@@ -34,7 +34,7 @@ public class Inventory {
 	 * @param type of item
 	 * @param quantity
 	 */
-	public void deposit(InventoryItem type, int q){
+	public static void deposit(InventoryItem type, int q){
 		quantity[type.ordinal()] += q;
 	}
 	
@@ -44,7 +44,7 @@ public class Inventory {
 	 * @param quantity
 	 * @throws NotEnoughItemsException
 	 */
-	public void withdraw(InventoryItem type, int q) throws NotEnoughItemsException{
+	public static void withdraw(InventoryItem type, int q) throws NotEnoughItemsException{
 		int qt = quantity[type.ordinal()];
 		if (qt-q < 0)
 		{
@@ -56,7 +56,7 @@ public class Inventory {
 	/**
 	 * Display all items in inventory
 	 */
-	public void displayItems(){
+	public static void displayItems(){
 		for (InventoryItem i : InventoryItem.values())
 		{
 			System.out.println(i.name() + " : " + quantity[i.ordinal()]);
