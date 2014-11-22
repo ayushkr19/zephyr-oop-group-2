@@ -1,0 +1,8 @@
+Inputs
+
+Our code takes inputs from the user only when certain conditions need to be checked. 
+
+1. It asks whether permissions have been acquired for various activities of the fest or not.If yes, the fest proceeds as normal, else it throws PermissionDeniedException.
+2. It asks whether the events list has been published for the fest or not.If yes, the fest proceeds as normal, else it throws EventListNotPublishedException.
+3. It asks whether the rule book has been published for the fest or not.If yes, the fest proceeds as normal, else it throws RuleBookNotPublishedException.
+4. It asks whether the required rooms and the auditorium have been booked for the fest or not.If yes, the fest proceeds as normal, else it throws RoomsNotBookedException.

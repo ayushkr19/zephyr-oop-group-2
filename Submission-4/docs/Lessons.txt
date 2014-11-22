@@ -1,0 +1,16 @@
+A. Positives of Group(2)
+
+1. Tried to capture each and every detail related to Zephyr.
+2. Capitalized on strengths of each member to attain best results.
+3. We all banked upon the project as an opportunity to learn new ways of doing things.
+4. We reviewed work of other groups to see where we stand and where we need improvement.
+
+B. Negatives of the Group(2)
+
+1. Some members of the group are not well initiated.
+2. Complexity of the project due to so much detail made us compromise on GUI/front end.
+
+C. What would we do differently next time ?
+
+1. Would manage the priorities between the code complexity and other features such as GUI to achieve optimal output. 
+2. Will try to keep each and every member motivated. 
