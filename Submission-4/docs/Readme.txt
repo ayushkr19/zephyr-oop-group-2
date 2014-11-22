@@ -2,19 +2,19 @@
    NAME                STUDENT ID           ROLES               Role Based            Overall Contribution
                                                                 Contribution(%)
 ----------------------------------------------------------------------------------------------------------
-Aashuthosh B Sai      2013A7PS094G  UseCases,CodeDevelopment      30%,20%      
+Aashuthosh B Sai      2013A7PS094G  UseCases,CodeDevelopment      30%,20%      				12.5%
 
-Aditya Bhalla         2012B5A7546G  UML,UseCases,CRCCards         33.3%,40%,65%
+Aditya Bhalla         2012B5A7546G  UML,UseCases,CRCCards         33.3%,40%,65%				20%
  
-Ayush Kumar           2012B1A7694G  CodeDevelopment,Unit Testing  80%,40%
+Ayush Kumar           2012B1A7694G  CodeDevelopment,Unit Testing  80%,40%					20%
 
-Keshav Patil          2013A7PS061G  UML,UseCases,CRC Cards        33.3%,30%,35%
+Keshav Patil          2013A7PS061G  UML,UseCases,CRC Cards        33.3%,30%,35%				12.5%
+	
+Rohan Patnaik         2013A7PS102G  UML,ProjectRequirements       33.3%,60%					12.5%
 
-Rohan Patnaik         2013A7PS102G  UML,ProjectRequirements       33.3%,60%
+Sahil Kulshrestha     2012A8PS747G  Unit Testing                  60%						10%
 
-Sahil Kulshrestha     2012A8PS747G  Unit Testing                  60%
-
-Yatharth Narang       2011A8PS357G  ProjectManager,Proj.Requirements  100%,40%
+Yatharth Narang       2011A8PS357G  ProjectManager,Proj.Requirements  100%,40%				12.5%
 
 -----------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------
